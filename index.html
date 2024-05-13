@@ -1,0 +1,58 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.invisible {
+  display: none;
+}
+
+button {
+  color: white;
+  background-color: black;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+button:hover {
+  opacity: 70%;
+  cursor: pointer;
+}
+
+h1 {
+  font-family: 'PT Sans', sans-serif;
+}
+
+p {
+  font-family: 'PT Sans', sans-serif;
+}
+
+</style>
+
+<body>
+
+<h1>Change in average traffic speed, March to April</h1>
+<p>Click the buttons below to see what interstates, highways and expressways had the largest changes in average speed between 7 and 9 a.m. and 3 and 5 p.m. from March to April.</p>
+<button class="am-button">A.M.</button>
+<button class="pm-button">P.M.</button>
+<br></br>
+<div class="am-map display1"><iframe width="100%" height="520" frameborder="0" src="https://baltsun.carto.com/builder/70f73f6a-a3ac-408a-8afc-894af7f37ffb/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe></div>
+<div class="pm-map display2 invisible"><iframe width="100%" height="520" frameborder="0" src="https://baltsun.carto.com/builder/29dbcd41-2dfa-4694-a569-c423ea427dfa/embed" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe></div>
+<p>Source: INRIX</p>
+</body>
+
+<script>
+$(document).ready(function(){
+  $(".pm-button").click(function(){
+    $(".display2").removeClass("invisible");
+    $(".display1").addClass("invisible");
+  });
+});
+$(document).ready(function(){
+  $(".am-button").click(function(){
+    $(".display2").addClass("invisible");
+    $(".display1").removeClass("invisible");
+  });
+});
+</script>
